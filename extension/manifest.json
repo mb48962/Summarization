@@ -1,0 +1,50 @@
+{
+	"manifest_version": 2,
+
+	"name": "Summarization",
+	"description": "Research",
+	"version": "12.02.17",
+
+	"background": {
+		"scripts": [
+			"background/jquery-3.2.1.min.js",
+			"background/background.js"
+		]
+	},
+
+	"content_scripts": [
+		{
+			"js": [
+				"content/jquery-3.2.1.min.js",
+				"content/content.js"
+			],
+			"matches": [
+				"http://www.reddit.com/r/*",
+				"https://www.reddit.com/r/*"
+			],
+			"run_at": "document_end"
+		},
+		{
+			"css": [
+				"content/content.css"
+			],
+			"matches": [
+				"http://www.reddit.com/r/*",
+				"https://www.reddit.com/r/*"
+			],
+			"run_at": "document_end"
+		}
+	],
+
+
+	"permissions": [
+		"activeTab",
+		"http://www.reddit.com/r/*",
+		"https://www.reddit.com/r/*",
+		"storage"
+	],
+
+	"page_action": {
+		"default_title": "Summarization"
+    }
+}
